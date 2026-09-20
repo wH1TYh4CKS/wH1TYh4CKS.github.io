@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Surenther Saravanan</title>
+<meta name="description" content="Software engineer building local-first AI systems — models on owned hardware, data that never leaves it.">
+<meta property="og:title" content="Surenther Saravanan">
+<meta property="og:description" content="Local-first AI systems: speech, vision and language models running on owned hardware.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>▚</text></svg>">
+<style>
+  :root {
+    --bg:        #fbfaf8;
+    --surface:   #ffffff;
+    --border:    #e3ded6;
+    --ink:       #16140f;
+    --ink-soft:  #5d574c;
+    --ink-faint: #8b8478;
+    --accent:    #1f5c4d;
+    --accent-bg: #e8f1ee;
+    --mono: ui-monospace, "Ubuntu Mono", "SFMono-Regular", Menlo, Consolas, monospace;
+    --sans: "Ubuntu", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg:        #101110;
+      --surface:   #181a19;
+      --border:    #2b2e2c;
+      --ink:       #eceae5;
+      --ink-soft:  #a8a49b;
+      --ink-faint: #736f66;
+      --accent:    #6fd6b4;
+      --accent-bg: #16302a;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg:        #101110;
+    --surface:   #181a19;
+    --border:    #2b2e2c;
+    --ink:       #eceae5;
+    --ink-soft:  #a8a49b;
+    --ink-faint: #736f66;
+    --accent:    #6fd6b4;
+    --accent-bg: #16302a;
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 0 16px; }
+
+  header { padding: 72px 0 40px; }
+  h1 {
+    font-size: clamp(1.9rem, 5vw, 2.6rem);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin: 0 0 4px;
+  }
+  .handle {
+    font-family: var(--mono);
+    font-size: 0.9rem;
+    color: var(--ink-faint);
+    margin: 0 0 22px;
+  }
+  .lede {
+    font-size: clamp(1.05rem, 2.6vw, 1.22rem);
+    color: var(--ink-soft);
+    margin: 0 0 28px;
+    max-width: 58ch;
+  }
+  .lede strong { color: var(--ink); font-weight: 600; }
+
+  .links { display: flex; flex-wrap: wrap; gap: 10px; }
+  .links a {
+    font-family: var(--mono);
+    font-size: 0.85rem;
+    text-decoration: none;
+    color: var(--ink-soft);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 5px 14px;
+    transition: border-color .15s, color .15s;
+  }
+  .links a:hover, .links a:focus-visible { color: var(--accent); border-color: var(--accent); }
+
+  hr { border: 0; border-top: 1px solid var(--border); margin: 0; }
+
+  section { padding: 44px 0; }
+  h2 {
+    font-size: 0.78rem;
+    font-family: var(--mono);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-faint);
+    font-weight: 500;
+    margin: 0 0 24px;
+  }
+
+  .project {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 26px;
+    margin-bottom: 20px;
+  }
+  .project h3 { margin: 0 0 2px; font-size: 1.32rem; letter-spacing: -0.01em; }
+  .project h3 a { color: inherit; text-decoration: none; }
+  .project h3 a:hover, .project h3 a:focus-visible { color: var(--accent); }
+  .tagline { margin: 0 0 16px; color: var(--ink-soft); font-size: 1rem; }
+  .project p { margin: 0 0 14px; }
+  .project p:last-of-type { margin-bottom: 0; }
+
+  .figure {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 22px;
+    padding: 16px 0 18px;
+    margin: 0 0 14px;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .figure div { min-width: 112px; }
+  .figure b {
+    display: block;
+    font-family: var(--mono);
+    font-size: 1.32rem;
+    color: var(--accent);
+    line-height: 1.2;
+    font-weight: 600;
+  }
+  .figure span { font-size: 0.8rem; color: var(--ink-faint); }
+
+  .stack {
+    display: flex; flex-wrap: wrap; gap: 6px;
+    margin: 16px 0 0; padding: 0; list-style: none;
+  }
+  .stack li {
+    font-family: var(--mono);
+    font-size: 0.74rem;
+    color: var(--ink-soft);
+    background: var(--accent-bg);
+    border-radius: 5px;
+    padding: 3px 8px;
+  }
+
+  .caveat {
+    font-size: 0.88rem;
+    color: var(--ink-faint);
+    border-left: 2px solid var(--border);
+    padding-left: 14px;
+    margin: 16px 0 0;
+  }
+
+  .principles { margin: 0; padding: 0; list-style: none; }
+  .principles li { margin-bottom: 18px; }
+  .principles b { display: block; font-size: 0.98rem; }
+  .principles span { color: var(--ink-soft); font-size: 0.95rem; }
+
+  footer {
+    padding: 36px 0 64px;
+    font-size: 0.84rem;
+    color: var(--ink-faint);
+    font-family: var(--mono);
+  }
+  footer a { color: var(--ink-soft); }
+
+  a { color: var(--accent); }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 3px; }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header>
+    <h1>Surenther Saravanan</h1>
+    <p class="handle">@wH1TYh4CKS</p>
+    <p class="lede">
+      Software engineer. I build <strong>local-first AI systems</strong> — speech, vision
+      and language models running on hardware I own, on data that never leaves it.
+    </p>
+    <nav class="links">
+      <a href="https://github.com/wH1TYh4CKS">GitHub</a>
+      <a href="https://github.com/wH1TYh4CKS/Podmetrix">Podmetrix</a>
+      <a href="https://github.com/wH1TYh4CKS/MedicScribeApp">MedicScribe</a>
+    </nav>
+  </header>
+
+  <hr>
+
+  <section>
+    <h2>Selected work</h2>
+
+    <article class="project">
+      <h3><a href="https://github.com/wH1TYh4CKS/Podmetrix">Podmetrix</a></h3>
+      <p class="tagline">A local AI that watches your footage so you don't have to.</p>
+
+      <p>
+        A creator records three hours on Monday and edits on Friday, having forgotten
+        what happened. Before cutting anything they scrub the whole file linearly.
+        Podmetrix indexes the recording into labelled, timestamped markers and imports
+        them straight into Resolve, Premiere, Final Cut or YouTube.
+      </p>
+      <p>
+        It is a <strong>mapper, not a highlight-cutter</strong>: it never drops a stretch.
+        Dull ones get labelled too, so a gap in the index always means "nothing there",
+        never "the model missed it".
+      </p>
+
+      <div class="figure">
+        <div><b>41 → 75%</b><span>recall, after raising the frame budget</span></div>
+        <div><b>114</b><span>hand-marked events as ground truth</span></div>
+        <div><b>41.5s</b><span>machine pass vs 10 min by hand</span></div>
+      </div>
+
+      <p>
+        The interesting part is the measurement harness. There is no public dataset of
+        "moments a creator would bookmark", so I hand-marked a 30-minute slice and built
+        an LLM-judge pipeline to score against it — with audit sheets, because the judge
+        was wrong often enough to need checking.
+      </p>
+
+      <p class="caveat">
+        Honest limits: recall is measured on one slice of one video. A prompt-variant
+        sweep across four videos came back statistically insignificant on every arm —
+        the prompt was not where the headroom lived. That negative result is kept in the
+        repo, because it is the reason the design is what it is.
+      </p>
+
+      <ul class="stack">
+        <li>Python</li><li>FastAPI</li><li>faster-whisper</li><li>PySceneDetect</li>
+        <li>ffmpeg</li><li>vision LLM</li><li>Docker</li>
+      </ul>
+    </article>
+
+    <article class="project">
+      <h3><a href="https://github.com/wH1TYh4CKS/MedicScribeApp">MedicScribe</a></h3>
+      <p class="tagline">A medical scribe that speaks Manglish, and keeps nothing.</p>
+
+      <p>
+        Off-the-shelf medical scribes assume a monolingual English consultation. A
+        Malaysian primary-care visit mixes English, Mandarin, Bahasa Melayu and Tamil
+        inside a single sentence. A doctor presses Record; audio streams to a GPU server
+        on the clinic's own network; a structured SOAP note comes back in under 30 seconds.
+      </p>
+
+      <div class="figure">
+        <div><b>4</b><span>languages, code-switched mid-sentence</span></div>
+        <div><b>0</b><span>bytes retained after a consultation</span></div>
+        <div><b>&lt;30s</b><span>from Stop to a finished note</span></div>
+      </div>
+
+      <p>
+        The regulatory constraint was harder than the accuracy one. Under Malaysia's PDPA,
+        a scribe that uploads consultation audio makes the clinic responsible for a data
+        flow it cannot inspect. So privacy is <strong>enforced in code, not in a policy
+        PDF</strong>: no database, audio unlinked at Stop, transcript in RAM only, a TTL
+        reaper for crash orphans, and a live <code>/transparency</code> endpoint that
+        reports the actual file count so the claim is checkable from outside.
+      </p>
+      <p>
+        Design decision worth defending: rather than detect the language and route to a
+        model, one Whisper pass with <code>task: translate</code> turns any input language
+        into an English note. No picker, no second hop. A Malaysian fine-tune was tested
+        for this and rejected, and the measurements that killed it are committed next to
+        the setting they justify.
+      </p>
+
+      <p class="caveat">
+        Built and field-tested on real consultations; the clinic pitch was declined on
+        legal and ethics grounds. It works, and it is not deployed. Not a medical device,
+        not certified, not fit for clinical use.
+      </p>
+
+      <ul class="stack">
+        <li>Python</li><li>FastAPI</li><li>WebSocket</li><li>Whisper large-v3</li>
+        <li>vLLM</li><li>Kotlin</li><li>Jetpack Compose</li><li>Docker</li>
+      </ul>
+    </article>
+  </section>
+
+  <hr>
+
+  <section>
+    <h2>How I work</h2>
+    <ul class="principles">
+      <li>
+        <b>Measure before optimising.</b>
+        <span>Both projects ship a harness, not a demo reel. Podmetrix's recall jump came
+        from discovering the model was not blind, it was under-fed — which only a
+        measurement could tell me.</span>
+      </li>
+      <li>
+        <b>Keep the negative results.</b>
+        <span>Rejected models, insignificant sweeps and confidently-wrong failure modes
+        stay in the repos, next to the settings they explain.</span>
+      </li>
+      <li>
+        <b>Make claims checkable.</b>
+        <span>Podmetrix has a test that fails the build if an undeclared outbound host
+        appears in the source. MedicScribe exposes its own retention state over HTTP.
+        A privacy promise you cannot verify is marketing.</span>
+      </li>
+      <li>
+        <b>Own the stack.</b>
+        <span>Everything runs on a 4×3090 rig here — model serving, quantisation,
+        multi-GPU topology, thermal limits. No inference bills, no data leaving the box.</span>
+      </li>
+    </ul>
+  </section>
+
+  <hr>
+
+  <footer>
+    <p>
+      Both projects are published for reading — all rights reserved.<br>
+      Source for this page: <a href="https://github.com/wH1TYh4CKS/wH1TYh4CKS.github.io">wH1TYh4CKS.github.io</a>
+    </p>
+  </footer>
+
+</div>
+
+</body>
+</html>
