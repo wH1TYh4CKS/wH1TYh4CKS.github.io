@@ -311,6 +311,70 @@
         </ul>
       </article>
 
+      <article class="card rv">
+        <h3><a href="https://github.com/wH1TYh4CKS/kb">kb</a></h3>
+        <p class="tagline">Knowledge store for AI agents.</p>
+        <p>
+          Agents usually read whole files to find one answer. kb lets them fetch
+          <strong>one section</strong> instead.
+        </p>
+        <div class="stats">
+          <div class="stat"><b>36/40</b><span>correct, same as raw files</span></div>
+          <div class="stat"><b>10</b><span>of 40 questions held out</span></div>
+          <div class="stat"><b>-31%</b><span>tokens per typical question</span></div>
+        </div>
+        <ul class="stack">
+          <li>Rust</li><li>SQLite FTS5</li>
+        </ul>
+      </article>
+
+      <article class="card rv">
+        <h3><a href="https://github.com/wH1TYh4CKS/ctxc">ctxc</a></h3>
+        <p class="tagline">Context compiler for AI coding on large codebases.</p>
+        <p>
+          Gives a small model exactly the code a change touches, checks nothing was
+          missed, compiles, runs the tests, then commits to a branch.
+        </p>
+        <div class="stats">
+          <div class="stat"><b>0</b><span>real callers missed on ruff, VS Code (3.9M lines), mypy</span></div>
+          <div class="stat"><b>12/12</b><span>tasks correct</span></div>
+          <div class="stat"><b>25-80x</b><span>fewer tokens than an agent with tools</span></div>
+        </div>
+        <ul class="stack">
+          <li>Python</li><li>LSP</li>
+        </ul>
+      </article>
+
+      <article class="card rv">
+        <h3><a href="https://github.com/wH1TYh4CKS/memfacts">memfacts</a></h3>
+        <p class="tagline">Agent memory with no made-up facts.</p>
+        <p>
+          Facts are copied from tool calls by code, not written by a model. I built it
+          after finding that <strong>27% of model-written memory notes</strong> had a
+          claim nothing supported.
+        </p>
+        <ul class="stack">
+          <li>Python</li><li>SQLite</li><li>systemd</li>
+        </ul>
+      </article>
+
+      <article class="card rv">
+        <h3><a href="https://github.com/wH1TYh4CKS/llmw">llmw</a></h3>
+        <p class="tagline">Self-hosted LLM server.</p>
+        <p>
+          A private, OpenAI-compatible AI server on four RTX 3090s. It picks the GPU
+          layout automatically from the NVLink topology, and runs vLLM and llama.cpp.
+        </p>
+        <div class="stats">
+          <div class="stat"><b>4</b><span>RTX 3090s</span></div>
+          <div class="stat"><b>283</b><span>tests</span></div>
+          <div class="stat"><b>auto</b><span>GPU layout</span></div>
+        </div>
+        <ul class="stack">
+          <li>Python</li><li>FastAPI</li><li>vLLM</li><li>llama.cpp</li>
+        </ul>
+      </article>
+
     </div>
   </section>
 
@@ -445,7 +509,7 @@ egress                <b>none</b></div>
   <hr class="rule">
 
   <footer class="rv">
-    Both projects published for reading — all rights reserved.<br>
+    Podmetrix and MedicScribe published for reading — all rights reserved.<br>
     This page: no framework, no build step, no external requests. Fonts self-hosted.<br>
     Source · <a href="https://github.com/wH1TYh4CKS/wH1TYh4CKS.github.io">wH1TYh4CKS.github.io</a>
   </footer>
